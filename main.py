@@ -27,7 +27,7 @@ def find_matching_employees(shift):
 	matched_employees = []  
 	for position in shift["positions"]:  # Iterate through needed positions
 		for employee in employees:
-			# ... add availability check as before ...
+			if all(day in employee["availability"] for day in shift["days"]): 
 			if position in employee["skills"]:  # Match the needed position
 				matched_employees.append({ 
 					'shift': shift['name'],  
