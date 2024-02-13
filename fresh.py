@@ -19,9 +19,9 @@ def assign_employees_to_zones(employees, daily_skill_needs):
 					# Before assignment checks:
 					if hour_block not in assignments:
 						assignments[hour_block] = {} 
-					if skill not in assignments[hour_block]: 
-						assignments[hour_block][skill] = employee['name'] 
-						break  # Exit the 'skill' loop - employee assigned for this hour 
+						if skill not in assignments[hour_block]: 
+							assignments[hour_block][skill] = employee['name'] 
+							break  # Exit the 'skill' loop - employee assigned for this hour 
 	return assignments 
 
 
