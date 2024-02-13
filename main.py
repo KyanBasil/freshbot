@@ -35,7 +35,7 @@ def find_matching_employees(shift):
                         'employee': employee
                     })
                     break # Now exits only the inner loop
-    return matched_employees # Now executes after both loops finish
+    return matched_employees, shift['name'] 
 
 
 
