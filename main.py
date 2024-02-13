@@ -28,6 +28,10 @@ def find_matching_employees(shift):
 	for position in shift["positions"]: 
 		for employee in employees:
 			if all(day in employee["availability"] for day in shift["days"]):
+				if all(day in employee["availability"] for day in shift["days"]):  
+    # This is an ideal pick with full availability, assign immediately!
+    				matched_employees.append({...}) 
+   				break # We can break immediately because this person can't be beat
 				if position in employee["skills"]:
 					matched_employees.append({
 						'shift': shift['name'],
