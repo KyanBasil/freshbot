@@ -24,18 +24,19 @@ shifts = [
 
 
 def find_matching_employees(shift):
-	matched_employees = []  
-	for position in shift["positions"]:  # Iterate through needed positions
+	matched_employees = []
+	for position in shift["positions"]: 
 		for employee in employees:
-			if all(day in employee["availability"] for day in shift["days"]): 
-			if position in employee["skills"]:  # Match the needed position
-				matched_employees.append({ 
-					'shift': shift['name'],  
-					'position': position, 
-					'employee': employee 
-				})
-				break  # Position filled, move on to the next 
-	return matched_employees 
+			if all(day in employee["availability"] for day in shift["days"]):
+				if position in employee["skills"]:
+					matched_employees.append({
+						'shift': shift['name'],
+						'position': position,
+						'employee': employee
+					})
+					break # This needs to be indented one level OUT 
+return matched_employees
+
 
 
 morning_shift = shifts[0]
