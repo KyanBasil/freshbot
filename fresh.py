@@ -1,13 +1,13 @@
 employees = [
-	{"name": "Alice", "id": 1234, "skills": ["Cashier", "CS"], "start": "8:00 AM", "end": "9:30 AM"},
-	{"name": "Bob", "id": 5678, "skills": ["CS"], "start": "8:30 AM", "end": "10:00 AM"},
-	{"name": "Charlie", "id": 9101, "skills": ["Cashier", "CS"], "start": "8:00 AM", "end": "10:00 AM"},
+	{"name": "Alice", "id": 1234, "skills": ["Cashier", "CS"], "start": "8:00", "end": "9:30"},
+	{"name": "Bob", "id": 5678, "skills": ["CS"], "start": "8:30", "end": "10:00"},
+	{"name": "Charlie", "id": 9101, "skills": ["Cashier", "CS"], "start": "8:00", "end": "10:00"},
 ]
 
 daily_skill_needs = {
-	"8:00 AM - 9:00 AM": ["Cashier"],
-	"9:00 AM - 10:00 AM": ["Cashier", "CS"], 
-	# ... covering your 8AM to 10PM timeframe
+	"8:00 - 9:00": ["Cashier"],
+	"9:00 - 10:00": ["Cashier", "CS"], 
+	# ... covering your 8 to 10 timeframe
 }
 def assign_employees_to_zones(employees, daily_skill_needs):
 	assignments = {} # This needs to be at the function's start
@@ -35,6 +35,5 @@ schedule = assign_employees_to_zones(employees, daily_skill_needs)  # Capture ou
 print(schedule)
 
 	# Logic to assign employees for this 'hour_block' and its 'needed_skills' will go here
-
 
 
