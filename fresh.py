@@ -16,17 +16,16 @@ def assign_employees_to_zones(employees, daily_skill_needs):
 		for skill in needed_skills:  
 			for employee in employees:
 				if skill in employee["skills"]:
-					# Before assignment, let's check our 'assignments' log:
+					# Before assignment checks:
 					if hour_block not in assignments:
-						assignments[hour_block] = {}  # Create  entry for hour if first time
-					if skill not in assignments[hour_block]:
-						assignments[hour_block][skill] = employee['name'] # Make assignment!
-					print(assignments) 
+						assignments[hour_block] = {} 
+					if skill not in assignments[hour_block]: 
+						assignments[hour_block][skill] = employee['name'] 
+						break  # Exit the 'skill' loop - employee assigned for this hour 
+	return assignments 
 
- 
+
+schedule = assign_employees_to_zones(employees, daily_skill_needs)  # Capture output
+print(schedule)
+
 	# Logic to assign employees for this 'hour_block' and its 'needed_skills' will go here
- 
-print(employees) 
-print(daily_skill_needs)
-
-assign_employees_to_zones(employees, daily_skill_needs)  # Currently  does nothing
