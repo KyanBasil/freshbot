@@ -24,18 +24,18 @@ shifts = [
 
 
 def find_matching_employees(shift):
-    matched_employees = []
-    for position in shift["positions"]: 
-        for employee in employees:
-            if all(day in employee["availability"] for day in shift["days"]):
-                if position in employee["skills"]:
-                    matched_employees.append({
-                        'shift': shift['name'],
-                        'position': position,
-                        'employee': employee
-                    })
-                    break # Now exits only the inner loop
-    return matched_employees, shift['name'] 
+	matched_employees = []
+	for position in shift["positions"]: 
+		for employee in employees:
+			if all(day in employee["availability"] for day in shift["days"]):
+				if position in employee["skills"]:
+					matched_employees.append({
+						'shift': shift['name'],
+						'position': position,
+						'employee': employee
+					})
+					# break # Now exits only the inner loop
+	return matched_employees, shift['name'] 
 
 
 
@@ -44,4 +44,4 @@ morning_shift = shifts[0]
 matched_employees, shift_name = find_matching_employees(morning_shift)  # Capture both values
 print("------ Debugging Info ------")
 print("Shift:", shift_name)
-print("Matched Employees:", matched_employees) 
+print("Matched Employees:", matched_employees)
