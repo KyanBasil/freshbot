@@ -10,5 +10,23 @@ daily_skill_needs = {
 	# ... covering your 8AM to 10PM timeframe
 }
 def assign_employees_to_zones(employees, daily_skill_needs):
-# Zone assignment logic will go here (we'll build this out gradually!)
-	pass # For now, a placeholder 
+	assignments = {}
+
+	for hour_block, needed_skills in daily_skill_needs.items(): 
+		for skill in needed_skills:  
+			for employee in employees:
+				if skill in employee["skills"]:
+					# Before assignment, let's check our 'assignments' log:
+					if hour_block not in assignments:
+						assignments[hour_block] = {}  # Create  entry for hour if first time
+					if skill not in assignments[hour_block]:
+						assignments[hour_block][skill] = employee['name'] # Make assignment!
+					print(assignments) 
+
+ 
+	# Logic to assign employees for this 'hour_block' and its 'needed_skills' will go here
+ 
+print(employees) 
+print(daily_skill_needs)
+
+assign_employees_to_zones(employees, daily_skill_needs)  # Currently  does nothing
