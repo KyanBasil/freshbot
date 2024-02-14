@@ -19,15 +19,22 @@ fetch('employees.json')
 
 // Handles CSV file uploads
 function handleFileUpload(event) {
-	let file = event.target.files[0]; // Get the selected file
+  // 1. File Upload Confirmation
+  let uploadStatus = document.getElementById("uploadStatus");
+  uploadStatus.textContent = "File Uploaded!"; // Immediate feedback
 
-	let reader = new FileReader(); 
-	reader.readAsText(file); // Initiate file reading
+	let file = event.target.files[0]; 
+	  let reader = new FileReader(); 
+	  reader.readAsText(file); 
 
 	// After the file is loaded:
 	reader.onload = function() {
 		let csvData = reader.result; 
-		processCSVData(csvData); // Parse and update employees 
+		
+		// 2. Show Loading Indicator 
+		uploadStatus.textContent = "Processing CSV, please wait..."; // Or a loader image, etc.
+
+		processCSVData(csvData); 
 	};
 }
 
@@ -60,9 +67,7 @@ function processCSVData(csvData) {
 		}
 	}
 
-	// Display success message 
-	let uploadStatus = document.getElementById("uploadStatus");
-	uploadStatus.textContent = "CSV File Uploaded Successfully!"; 
+	uploadStatus.textContent = "Schedule Updated!"; 
 }
 
 // Generates a CSV string from current employee data
