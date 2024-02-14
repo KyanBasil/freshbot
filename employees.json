@@ -1,0 +1,7 @@
+let employees = [
+	{ id: "kempkyan", name: "Kyan Kempton", skills: ["CS", "ENT"] },
+	{ id: "brilhen", name: "Brian", skills: ["CHR", "ALC"] },
+	{ id: "jennfowl", name: "Jenn", skills: ["CS", "ENT"] },
+	{ id: "leslielf", name: "Leslie", skills: ["CS", "ENT", "ALC"] },
+	
+];
