@@ -78,8 +78,6 @@ function processCSVData(csvData) {
 						}
 					  }
 					}
-					
-			employees.push(employee); 
 			return employees;  // Add to end to provide result of  the work
 		}
 	}
