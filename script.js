@@ -67,7 +67,6 @@ function processCSVData(csvData) {
 		}
 	}
 
-	uploadStatus.textContent = "Schedule Updated!"; 
 }
 
 // Generates a CSV string from current employee data
@@ -114,4 +113,6 @@ reader.onload = function() {
 
 	// Get processed, up-to-date employees  
 	let updatedEmployees = processCSVData(csvData);
+
+	uploadStatus.textContent = "Schedule Updated!"; 
 };
