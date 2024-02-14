@@ -19,9 +19,26 @@ fetch('employees.json')
 
 // Handles CSV file uploads
 function handleFileUpload(event) {
-  // 1. File Upload Confirmation
-  let uploadStatus = document.getElementById("uploadStatus");
-  uploadStatus.textContent = "File Uploaded!"; // Immediate feedback
+  // Keep File Retrieval Here
+  let file = event.target.files[0]; 
+  let reader = new FileReader(); 
+  reader.readAsText(file); 
+
+  // Process CSV and Schedule Updates
+  reader.onload = function() {
+	let csvData = reader.result; 
+	processAndSchedule(csvData); // Let's make a dedicated function for this!
+  };
+}
+
+function processAndSchedule(csvData) {
+  let updatedEmployees = processCSVData(csvData);
+
+  // Placeholder for future scheduling logic - we'll call functions from  logic.js?
+  // Maybe:  const finalSchedule = performScheduleMatching(updatedEmployees); 
+
+  uploadStatus.textContent = "Schedule Updated!";  
+}
 
 	let file = event.target.files[0]; 
 	  let reader = new FileReader(); 
@@ -96,14 +113,14 @@ function downloadCSV() {
 }
 
 // --- Event Listeners (Connecting buttons to actions) ---
-
-// File Upload Button
-let fileInput = document.getElementById("scheduleUpload");
-fileInput.addEventListener("change", handleFileUpload); 
-
-// Download Button
-let downloadButton = document.getElementById("downloadBtn");
-downloadButton.addEventListener("click", downloadCSV); 
+	document.addEventListener('DOMContentLoaded', function() {
+		// File Upload Button
+		let fileInput = document.getElementById("scheduleUpload");
+		fileInput.addEventListener("change", handleFileUpload); 
+		// Download Button
+		let downloadButton = document.getElementById("downloadBtn");
+		downloadButton.addEventListener("click", downloadCSV);
+	});
 
 function handleFileUpload(event) { 
 //  ... (Upload your file) ...
