@@ -53,7 +53,7 @@ function processAndSchedule(csvData) {
 
 		processCSVData(csvData); 
 	};
-}
+
 
 // Processes uploaded CSV data
 function processCSVData(csvData) {
@@ -78,6 +78,7 @@ function processCSVData(csvData) {
 						}
 					  }
 					}
+					
 			return employees;  // Add to end to provide result of  the work
 		}
 	}
