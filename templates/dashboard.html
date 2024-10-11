@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Simulated Bank</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <h2>Account Information</h2>
+            <p>Account Number: {{ account.account_number }}</p>
+            <p>Balance: ${{ account.balance }}</p>
+        </div>
+        <div class="card">
+            <h2>Transactions</h2>
+            <ul>
+                {% for transaction in transactions %}
+                    <li>{{ transaction.date }} - {{ transaction.transaction_type }} - ${{ transaction.amount }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card">
+            <h2>Loans</h2>
+            <ul>
+                {% for loan in loans %}
+                    <li>{{ loan.loan_type }} - ${{ loan.amount }} - Interest Rate: {{ loan.interest_rate }}% - Start Date: {{ loan.start_date }} - End Date: {{ loan.end_date }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

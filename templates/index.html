@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulated Bank</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Simulated Bank</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <h2>About Us</h2>
+            <p>Welcome to Simulated Bank, your trusted partner in managing your finances. We offer a range of services including account creation, deposits, withdrawals, transfers, and more.</p>
+        </div>
+        <div class="card">
+            <h2>Our Services</h2>
+            <p>At Simulated Bank, we provide the following services:</p>
+            <ul>
+                <li>Account Creation</li>
+                <li>Deposits</li>
+                <li>Withdrawals</li>
+                <li>Transfers</li>
+                <li>Balance Inquiries</li>
+                <li>Loan Management</li>
+                <li>Interest Calculation</li>
+                <li>Transaction History</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
